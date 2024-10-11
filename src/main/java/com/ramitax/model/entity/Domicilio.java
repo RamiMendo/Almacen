@@ -1,4 +1,4 @@
-package com.ramitax.model;
+package com.ramitax.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;

@@ -1,4 +1,4 @@
-package com.ramitax.model;
+package com.ramitax.model.entity;
 
 import com.ramitax.interfaces.Archivo;
 import com.ramitax.enumerated.Estado;

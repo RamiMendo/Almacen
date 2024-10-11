@@ -1,4 +1,4 @@
-package com.ramitax.model;
+package com.ramitax.model.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

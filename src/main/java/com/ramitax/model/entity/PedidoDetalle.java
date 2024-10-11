@@ -1,4 +1,4 @@
-package com.ramitax.model;
+package com.ramitax.model.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

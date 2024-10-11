@@ -1,7 +1,7 @@
 package com.ramitax.service;
 
 import com.ramitax.mapper.ArticuloMapper;
-import com.ramitax.model.Articulo;
+import com.ramitax.model.entity.Articulo;
 import com.ramitax.model.dto.ArticuloDTO;
 import com.ramitax.repository.ArticuloRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class ArticuloService implements ArticuloMapper{
     }
 
     public Articulo save(ArticuloDTO articuloDTO) {
-        Articulo articulo = articuloDtoToArticulo(articuloDTO);
+        Articulo articulo = dtoToArticulo(articuloDTO);
         return articuloRepository.save(articulo);
     }
 
@@ -37,7 +37,7 @@ public class ArticuloService implements ArticuloMapper{
     }
 
     @Override
-    public Articulo articuloDtoToArticulo(ArticuloDTO dto) {
+    public Articulo dtoToArticulo(ArticuloDTO dto) {
         Articulo articulo = new Articulo();
         articulo.setNombre(dto.getNombre());
         articulo.setIva(dto.getIva());

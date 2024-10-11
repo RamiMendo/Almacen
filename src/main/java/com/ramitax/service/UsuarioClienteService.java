@@ -1,6 +1,6 @@
 package com.ramitax.service;
 
-import com.ramitax.model.UsuarioCliente;
+import com.ramitax.model.entity.UsuarioCliente;
 import com.ramitax.repository.UsuarioClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

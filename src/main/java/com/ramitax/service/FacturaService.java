@@ -1,6 +1,6 @@
 package com.ramitax.service;
 
-import com.ramitax.model.Factura;
+import com.ramitax.model.entity.Factura;
 import com.ramitax.repository.FacturaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

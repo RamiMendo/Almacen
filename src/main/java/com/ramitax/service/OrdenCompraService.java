@@ -1,6 +1,6 @@
 package com.ramitax.service;
 
-import com.ramitax.model.OrdenCompra;
+import com.ramitax.model.entity.OrdenCompra;
 import com.ramitax.repository.OrdenCompraRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

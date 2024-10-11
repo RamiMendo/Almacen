@@ -1,6 +1,6 @@
 package com.ramitax.service;
 
-import com.ramitax.model.Pedido;
+import com.ramitax.model.entity.Pedido;
 import com.ramitax.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

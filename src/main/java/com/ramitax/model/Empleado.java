@@ -14,6 +14,9 @@ import java.time.LocalDate;
 @Table(name = "empleados")
 public class Empleado extends Entidad{
 
+    @Column(nullable = false, length = 8)
+    private String dni;
+
     @Column(nullable = false)
     private Double salario;
 

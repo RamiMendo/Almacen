@@ -1,6 +1,6 @@
 package com.ramitax.controller;
 
-import com.ramitax.model.Articulo;
+import com.ramitax.model.entity.Articulo;
 import com.ramitax.model.dto.ArticuloDTO;
 import com.ramitax.service.ArticuloService;
 import io.swagger.v3.oas.annotations.Operation;

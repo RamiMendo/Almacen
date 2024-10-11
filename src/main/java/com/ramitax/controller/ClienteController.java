@@ -1,6 +1,6 @@
 package com.ramitax.controller;
 
-import com.ramitax.model.Cliente;
+import com.ramitax.model.entity.Cliente;
 import com.ramitax.service.ClienteService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;

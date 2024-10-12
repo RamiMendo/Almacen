@@ -1,5 +1,6 @@
 package com.ramitax.controller;
 
+import com.ramitax.model.dto.ClienteDTO;
 import com.ramitax.model.entity.Cliente;
 import com.ramitax.service.ClienteService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -9,10 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/cliente")
@@ -33,4 +31,12 @@ public class ClienteController {
         return new ResponseEntity<>(pageCliente, HttpStatus.OK);
     }
 
+    @PostMapping(path = "/save", consumes = "application/json")
+    @Operation(summary = "",
+            description = "",
+            tags = {"CLIENTES"}
+    )
+    private @ResponseBody Cliente save(@RequestBody ClienteDTO clienteDTO){
+        return clienteService.save(clienteDTO);
+    }
 }

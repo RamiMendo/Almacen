@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 public class FacturaDetalleKey {
 
     @Column(name = "id_factura")
-    private Integer idFactura;
+    private Long idFactura;
 
     @Column(name = "id_articulo")
-    private Integer idArticulo;
+    private Long idArticulo;
 }

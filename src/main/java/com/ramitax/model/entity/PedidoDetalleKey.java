@@ -13,9 +13,9 @@ import lombok.NoArgsConstructor;
 public class PedidoDetalleKey {
 
     @Column(name = "id_pedido")
-    private Integer idPedido;
+    private Long idPedido;
 
     @Column(name = "id_articulo")
-    private Integer idArticulo;
+    private Long idArticulo;
 
 }

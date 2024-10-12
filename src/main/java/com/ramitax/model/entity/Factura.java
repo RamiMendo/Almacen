@@ -15,9 +15,11 @@ import java.util.List;
 @Entity
 @Table(name = "facturas")
 @JsonIgnoreProperties("pedidos")
+@AttributeOverride(name = "id", column = @Column(name = "id_factura"))
 public class Factura extends Comprobante{
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_cliente")
     private Cliente cliente;
 
     @Enumerated(EnumType.ORDINAL)

@@ -13,12 +13,14 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "pedidos")
+@AttributeOverride(name = "id", column = @Column(name = "id_pedido"))
 public class Pedido extends Comprobante{
 
     @Column(nullable = false)
     private LocalDate fechaEntrega;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_cliente")
     private Cliente cliente;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "pedido", orphanRemoval = true)

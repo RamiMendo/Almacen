@@ -34,6 +34,7 @@ public class Domicilio {
     private Cliente cliente;
 
     @OneToOne
+    @JoinColumn(name = "id_empleado")
     private Empleado empleado;
 
 }

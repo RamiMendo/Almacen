@@ -13,12 +13,14 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "ordenes_compras")
 @Inheritance(strategy = InheritanceType.JOINED)
+@AttributeOverride(name = "id", column = @Column(name = "id_orden"))
 public class OrdenCompra extends Comprobante{
 
     @Column(nullable = false)
     private LocalDate fechaEntrega;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_proveedor")
     private Proveedor proveedor;
 
     @Override

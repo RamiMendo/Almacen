@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 public class OrdenCompraDetalle extends OrdenCompra{
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_articulo")
     private Articulo articulo;
 
     @Column(nullable = false)

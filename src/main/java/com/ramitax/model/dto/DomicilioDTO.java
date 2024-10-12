@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DomicilioDTO {
 
-
+    private String direccion;
+    private String localidad;
+    private String provincia;
+    private String pais;
 
 }

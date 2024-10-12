@@ -16,9 +16,13 @@ public class FacturaDetalle {
     private FacturaDetalleKey id;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("idFactura")
+    @JoinColumn(name = "id_factura")
     private Factura factura;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("idArticulo")
+    @JoinColumn(name = "id_articulo")
     private Articulo articulo;
 
     @Column(nullable = false)

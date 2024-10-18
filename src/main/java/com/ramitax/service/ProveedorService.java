@@ -8,24 +8,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProveedorService implements ProveedorMapper {
+public class ProveedorService {
 
     @Autowired
     private ProveedorRepository proveedorRepository;
 
+    @Autowired
+    private ProveedorMapper proveedorMapper;
+
     public Proveedor save(ProveedorDTO dto){
-        Proveedor proveedor = dtoToProveedor(dto);
+        Proveedor proveedor = proveedorMapper.dtoToProveedor(dto);
+        proveedor.setSaldo(0.0);
+        proveedor.setDomicilio("");
         return proveedorRepository.save(proveedor);
     }
 
-    @Override
-    public Proveedor dtoToProveedor(ProveedorDTO proveedorDTO) {
-        Proveedor proveedor = new Proveedor();
-        proveedor.setNombre(proveedorDTO.getNombre());
-        proveedor.setCuit(proveedorDTO.getCuit());
-        proveedor.setMail(proveedorDTO.getMail());
-        proveedor.setTelefono(proveedorDTO.getTelefono());
-        proveedor.setSaldo(0.0);
-        return proveedor;
-    }
 }

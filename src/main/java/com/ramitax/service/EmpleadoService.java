@@ -12,10 +12,13 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 
 @Service
-public class EmpleadoService implements EmpleadoMapper {
+public class EmpleadoService {
 
     @Autowired
     private EmpleadoRepository empleadoRepository;
+
+    @Autowired
+    private EmpleadoMapper empleadoMapper;
 
     public Page<Empleado> findAll(Pageable pageable) {
         return empleadoRepository.findAll(pageable);
@@ -26,7 +29,7 @@ public class EmpleadoService implements EmpleadoMapper {
     }
 
     public Empleado save(EmpleadoDTO empleadoDTO) {
-        Empleado empleado = dtoToEmpleado(empleadoDTO);
+        Empleado empleado = empleadoMapper.dtoToEmpleado(empleadoDTO);
         return empleadoRepository.save(empleado);
     }
 
@@ -36,18 +39,5 @@ public class EmpleadoService implements EmpleadoMapper {
 
     public Empleado update(Empleado empleado) {
         return empleadoRepository.save(empleado);
-    }
-
-    @Override
-    public Empleado dtoToEmpleado(EmpleadoDTO dto) {
-        Empleado empleado = new Empleado();
-        empleado.setNombre(dto.getNombre());
-        empleado.setDni(dto.getDni());
-        empleado.setCuit(dto.getCuit());
-        empleado.setFechaNacimiento(dto.getFechaNacimiento());
-        empleado.setSalario(0.0);
-        empleado.setFechaAlta(LocalDate.now());
-        empleado.setFechaBaja(LocalDate.of(1900,1,1));
-        return empleado;
     }
 }

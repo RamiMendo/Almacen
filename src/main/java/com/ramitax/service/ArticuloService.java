@@ -10,10 +10,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ArticuloService implements ArticuloMapper{
+public class ArticuloService{
 
     @Autowired
     private ArticuloRepository articuloRepository;
+
+    @Autowired
+    private ArticuloMapper articuloMapper;
 
     public Page<Articulo> findAll(Pageable pageable) {
         return articuloRepository.findAll(pageable);
@@ -24,7 +27,7 @@ public class ArticuloService implements ArticuloMapper{
     }
 
     public Articulo save(ArticuloDTO articuloDTO) {
-        Articulo articulo = dtoToArticulo(articuloDTO);
+        Articulo articulo = articuloMapper.dtoToArticulo(articuloDTO);
         return articuloRepository.save(articulo);
     }
 
@@ -36,15 +39,4 @@ public class ArticuloService implements ArticuloMapper{
         return articuloRepository.save(articulo);
     }
 
-    @Override
-    public Articulo dtoToArticulo(ArticuloDTO dto) {
-        Articulo articulo = new Articulo();
-        articulo.setNombre(dto.getNombre());
-        articulo.setIva(dto.getIva());
-        articulo.setContenido((dto.getContenido()));
-        articulo.setMarca(dto.getMarca());
-        articulo.setSector(dto.getSector());
-        articulo.setStock(0);
-        return articulo;
-    }
 }

@@ -40,4 +40,22 @@ public class ArticuloController {
         return articuloService.save(articuloDTO);
     }
 
+    @PutMapping(path = "/update", consumes = "application/json")
+    @Operation(summary = "",
+            description = "",
+            tags = {"ARTICULOS"}
+    )
+    private @ResponseBody Articulo updateArticulo(@RequestBody Articulo articulo){
+        return articuloService.update(articulo);
+    }
+
+    @DeleteMapping(path = "/delete", produces = "application/json")
+    @Operation(summary = "",
+            description = "",
+            tags = {"ARTICULOS"}
+    )
+    private ResponseEntity<Void> deleteArticulo(Articulo articulo){
+        articuloService.delete(articulo);
+        return ResponseEntity.noContent().build();
+    }
 }

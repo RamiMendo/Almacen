@@ -49,4 +49,23 @@ public class ClienteController {
     private @ResponseBody Cliente save(@RequestBody ClienteDTO clienteDTO){
         return clienteService.save(clienteDTO);
     }
+
+    @PutMapping(path = "/update", consumes = "application/json")
+    @Operation(summary = "",
+            description = "",
+            tags = {"CLIENTES"}
+    )
+    private @ResponseBody Cliente update(@RequestBody Cliente cliente){
+        return clienteService.update(cliente);
+    }
+
+    @DeleteMapping(path = "/delete", produces = "application/json")
+    @Operation(summary = "",
+            description = "",
+            tags = {"CLIENTES"}
+    )
+    private ResponseEntity<Void> deleteCliente(Cliente cliente){
+        clienteService.delete(cliente);
+        return ResponseEntity.noContent().build();
+    }
 }

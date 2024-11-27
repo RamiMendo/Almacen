@@ -1,7 +1,19 @@
 package com.ramitax.enumerated;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public enum Sector {
 
-    LIMPIEZA, COMIDA;
+    VACIO( ""),
+    LIMPIEZA("Limpieza"),
+    COMIDA("Comida"),
+    PERFUMERIA( "Perfumeria"),
+    FARMACIA("Farmacia"),
+    CONGELADOS( "Congelados"),
+    BEBIDAS( "Bebidas"),
+    ELECTRONICA("Electronica");
+
+    private String nombre;
 
 }

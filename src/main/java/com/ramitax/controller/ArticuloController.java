@@ -19,10 +19,10 @@ public class ArticuloController {
     @Autowired
     private ArticuloService articuloService;
 
-    @GetMapping(path = "", produces = "application/json")
+    @GetMapping(path = "/findAll", produces = "application/json")
     @Operation(summary = "",
             description = "",
-            tags = {"Articulo"}
+            tags = {"ARTICULOS"}
     )
     private ResponseEntity<Page<Articulo>> getAllArticulos(@RequestParam Integer page, @RequestParam Integer size){
         Pageable pageable = PageRequest.of(page, size);
@@ -34,7 +34,7 @@ public class ArticuloController {
     @PostMapping(path = "/save", consumes = "application/json")
     @Operation(summary = "",
             description = "",
-            tags = {"Articulo"}
+            tags = {"ARTICULOS"}
     )
     private @ResponseBody Articulo saveArticulo(@RequestBody ArticuloDTO articuloDTO){
         return articuloService.save(articuloDTO);

@@ -1,5 +1,6 @@
 package com.ramitax.controller;
 
+import com.ramitax.exception.CustomException;
 import com.ramitax.model.dto.ClienteDTO;
 import com.ramitax.model.entity.Cliente;
 import com.ramitax.service.ClienteService;
@@ -29,6 +30,15 @@ public class ClienteController {
         Page<Cliente> pageCliente = clienteService.findAll(pageable);
 
         return new ResponseEntity<>(pageCliente, HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/findID", produces = "application/json")
+    @Operation(summary = "",
+            description = "",
+            tags = {"CLIENTES"}
+    )
+    private @ResponseBody Cliente findClienteById(@RequestParam Integer id) throws CustomException {
+        return clienteService.findById(id);
     }
 
     @PostMapping(path = "/save", consumes = "application/json")

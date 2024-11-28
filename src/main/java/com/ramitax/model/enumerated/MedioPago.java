@@ -1,4 +1,4 @@
-package com.ramitax.enumerated;
+package com.ramitax.model.enumerated;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

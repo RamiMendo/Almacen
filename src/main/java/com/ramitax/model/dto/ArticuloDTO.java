@@ -1,11 +1,11 @@
 package com.ramitax.model.dto;
 
-import com.ramitax.enumerated.Sector;
+import com.ramitax.model.enumerated.Sector;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
+@AllArgsConstructor
 public class ArticuloDTO {
 
     private String nombre;

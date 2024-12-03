@@ -6,6 +6,8 @@ import com.ramitax.model.entity.Proveedor;
 import com.ramitax.model.dto.ProveedorDTO;
 import com.ramitax.repository.ProveedorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -28,8 +30,14 @@ public class ProveedorService {
     public Proveedor save(ProveedorDTO dto){
         Proveedor proveedor = proveedorMapper.dtoToProveedor(dto);
         proveedor.setSaldo(0.0);
-        proveedor.setDomicilio("");
         return proveedorRepository.save(proveedor);
     }
 
+    public void delete(Proveedor proveedor) {
+        proveedorRepository.delete(proveedor);
+    }
+
+    public Proveedor update(Proveedor proveedor) {
+        return proveedorRepository.save(proveedor);
+    }
 }

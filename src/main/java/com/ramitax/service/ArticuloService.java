@@ -29,6 +29,7 @@ public class ArticuloService{
 
     public Articulo save(ArticuloDTO articuloDTO) {
         Articulo articulo = articuloMapper.dtoToArticulo(articuloDTO);
+        articulo.setStock(0);
         return articuloRepository.save(articulo);
     }
 

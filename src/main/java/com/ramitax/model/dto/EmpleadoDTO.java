@@ -1,16 +1,17 @@
 package com.ramitax.model.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
 @Data
-@NoArgsConstructor
+@AllArgsConstructor
 public class EmpleadoDTO extends EntidadDTO{
 
     private String dni;
     private Double salario;
     private LocalDate fechaNacimiento;
+    private DomicilioDTO domicilio;
 
 }

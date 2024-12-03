@@ -1,7 +1,7 @@
 package com.ramitax.controller;
 
 import com.ramitax.exception.CustomException;
-import com.ramitax.model.dto.OrdenDTO;
+import com.ramitax.model.dto.OrdenCompraDTO;
 import com.ramitax.model.entity.OrdenCompra;
 import com.ramitax.service.OrdenCompraService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -47,7 +47,7 @@ public class OrdenCompraController {
             description = "",
             tags = {"ORDENES COMPRA"}
     )
-    private @ResponseBody OrdenCompra save(@RequestBody OrdenDTO dto){
+    private @ResponseBody OrdenCompra save(@RequestBody OrdenCompraDTO dto){
         return ordenCompraService.save(dto);
     }
 

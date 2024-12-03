@@ -1,5 +1,6 @@
 package com.ramitax.service;
 
+import com.ramitax.exception.CustomException;
 import com.ramitax.mapper.ArticuloMapper;
 import com.ramitax.model.entity.Articulo;
 import com.ramitax.model.dto.ArticuloDTO;
@@ -22,8 +23,8 @@ public class ArticuloService{
         return articuloRepository.findAll(pageable);
     }
 
-    public Articulo findById(Integer id) {
-        return articuloRepository.findById(id).get();
+    public Articulo findById(Integer id) throws CustomException {
+        return articuloRepository.findById(id).orElse(null);
     }
 
     public Articulo save(ArticuloDTO articuloDTO) {

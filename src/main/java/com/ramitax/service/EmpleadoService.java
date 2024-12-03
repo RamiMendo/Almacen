@@ -1,5 +1,6 @@
 package com.ramitax.service;
 
+import com.ramitax.exception.CustomException;
 import com.ramitax.mapper.EmpleadoMapper;
 import com.ramitax.model.entity.Empleado;
 import com.ramitax.model.dto.EmpleadoDTO;
@@ -24,8 +25,8 @@ public class EmpleadoService {
         return empleadoRepository.findAll(pageable);
     }
 
-    public Empleado findById(Integer id) {
-        return empleadoRepository.findById(id).get();
+    public Empleado findById(Integer id) throws CustomException {
+        return empleadoRepository.findById(id).orElse(null);
     }
 
     public Empleado save(EmpleadoDTO empleadoDTO) {

@@ -1,5 +1,8 @@
 package com.ramitax.service;
 
+import com.ramitax.exception.CustomException;
+import com.ramitax.mapper.OrdenMapper;
+import com.ramitax.model.dto.OrdenCompraDTO;
 import com.ramitax.model.entity.OrdenCompra;
 import com.ramitax.repository.OrdenCompraRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +20,8 @@ public class OrdenCompraService {
         return ordenCompraRepository.findAll(pageable);
     }
 
-    public OrdenCompra findById(Long id) {
-        return ordenCompraRepository.findById(id).get();
+    public OrdenCompra findById(Long id) throws CustomException {
+        return ordenCompraRepository.findById(id).orElse(null);
     }
 
     public OrdenCompra save(OrdenCompra ordenCompra) {

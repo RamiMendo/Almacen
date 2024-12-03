@@ -1,5 +1,6 @@
 package com.ramitax.service;
 
+import com.ramitax.exception.CustomException;
 import com.ramitax.mapper.ProveedorMapper;
 import com.ramitax.model.entity.Proveedor;
 import com.ramitax.model.dto.ProveedorDTO;
@@ -15,6 +16,14 @@ public class ProveedorService {
 
     @Autowired
     private ProveedorMapper proveedorMapper;
+
+    public Page<Proveedor> findAll(Pageable pageable) {
+        return proveedorRepository.findAll(pageable);
+    }
+
+    public Proveedor findById(Integer id) throws CustomException {
+        return proveedorRepository.findById(id).orElse(null);
+    }
 
     public Proveedor save(ProveedorDTO dto){
         Proveedor proveedor = proveedorMapper.dtoToProveedor(dto);

@@ -1,5 +1,6 @@
 package com.ramitax.service;
 
+import com.ramitax.exception.CustomException;
 import com.ramitax.mapper.ClienteMapper;
 import com.ramitax.model.entity.Cliente;
 import com.ramitax.model.dto.ClienteDTO;
@@ -23,8 +24,8 @@ public class ClienteService {
         return clienteRepository.findAll(pageable);
     }
 
-    public Cliente findById(Integer id) {
-        return clienteRepository.findById(id).get();
+    public Cliente findById(Integer id) throws CustomException {
+        return clienteRepository.findById(id).orElse(null);
     }
 
     public Cliente save(ClienteDTO clienteDTO) {

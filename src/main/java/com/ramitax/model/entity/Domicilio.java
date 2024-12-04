@@ -29,12 +29,4 @@ public class Domicilio {
     @Column(nullable = false, length = 15)
     private String pais;
 
-    @ManyToOne
-    @JoinColumn(name = "id_cliente")
-    private Cliente cliente;
-
-    @OneToOne
-    @JoinColumn(name = "id_empleado")
-    private Empleado empleado;
-
 }

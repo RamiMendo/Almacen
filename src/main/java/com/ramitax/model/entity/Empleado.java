@@ -29,7 +29,7 @@ public class Empleado extends Entidad{
     @Column(nullable = false)
     private LocalDate fechaNacimiento;
 
-    @OneToOne(mappedBy = "empleado", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Domicilio domicilio;
 
 }

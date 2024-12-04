@@ -13,8 +13,8 @@ import java.util.List;
 @JsonIgnoreProperties("ordenesCompra")
 public class Proveedor extends Entidad{
 
-    @Column(nullable = false, length = 35)
-    private String domicilio;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private Domicilio domicilio;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "proveedor")
     private List<OrdenCompra> ordenesCompra;

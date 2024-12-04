@@ -4,6 +4,7 @@ import com.ramitax.exception.CustomException;
 import com.ramitax.mapper.PedidoMapper;
 import com.ramitax.model.dto.PedidoDTO;
 import com.ramitax.model.entity.Pedido;
+import com.ramitax.model.enumerated.Estado;
 import com.ramitax.model.projection.PedidoDetalleView;
 import com.ramitax.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,14 +12,15 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.List;
+
 @Service
 public class PedidoService {
 
     @Autowired
     private PedidoRepository pedidoRepository;
 
-    public Page<Pedido> findAll(Pageable pageable) {
-        return pedidoRepository.findAll(pageable);
     @Autowired
     private PedidoMapper pedidoMapper;
 
@@ -34,7 +36,16 @@ public class PedidoService {
         return pedidoRepository.totalizaPedidos(desde, hasta);
     }
 
-    public Pedido save(Pedido pedido) {
+    public Pedido save(PedidoDTO dto) {
+        Pedido pedido = pedidoMapper.dtoToPedido(dto);
+        pedido.setFecha(LocalDate.now());
+        pedido.setEstado(Estado.PENDIENTE);
+
+        pedido.getPedidoDetalles().forEach(d -> {
+            d.setPedido(pedido);
+            d.setEntregado(0);
+        });
+
         return pedidoRepository.save(pedido);
     }
 

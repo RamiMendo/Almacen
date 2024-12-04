@@ -1,18 +1,19 @@
 package com.ramitax.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "ordenes_compras")
-@Inheritance(strategy = InheritanceType.JOINED)
 @AttributeOverride(name = "id", column = @Column(name = "id_orden"))
 public class OrdenCompra extends Comprobante{
 
@@ -23,13 +24,7 @@ public class OrdenCompra extends Comprobante{
     @JoinColumn(name = "id_proveedor")
     private Proveedor proveedor;
 
-    @Override
-    public void imprime() {
-
-    }
-
-    @Override
-    public void descarga() {
-
-    }
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "orden", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference(value = "orden-detalle")
+    private List<OrdenCompraDetalle> ordenCompraDetalle;
 }

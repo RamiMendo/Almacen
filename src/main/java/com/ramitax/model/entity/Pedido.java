@@ -1,5 +1,8 @@
 package com.ramitax.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,15 +27,7 @@ public class Pedido extends Comprobante{
     private Cliente cliente;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "pedido", orphanRemoval = true)
+    @JsonManagedReference(value = "pedido-detalle")
     private List<PedidoDetalle> pedidoDetalles;
 
-    @Override
-    public void imprime() {
-
-    }
-
-    @Override
-    public void descarga() {
-
-    }
 }

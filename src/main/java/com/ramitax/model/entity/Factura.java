@@ -1,7 +1,9 @@
 package com.ramitax.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.ramitax.enumerated.MedioPago;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.ramitax.model.enumerated.MedioPago;
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,23 +30,11 @@ public class Factura extends Comprobante{
     @Column(nullable = false)
     private Boolean firmaConforme;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "factura_pedidos",
-            joinColumns = @JoinColumn(name = "id_factura"),
-            inverseJoinColumns = @JoinColumn(name = "id_pedido")
-    )
-    private List<Pedido> pedidos;
+    @Nullable
+    @OneToOne(fetch = FetchType.LAZY)
+    private Pedido pedido;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "factura", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference(value = "factura-detalle")
     private List<FacturaDetalle> facturasDetalle;
-
-    @Override
-    public void imprime() {
-        String ext = PDF;
-    }
-
-    @Override
-    public void descarga() {
-
-    }
 }

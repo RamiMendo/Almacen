@@ -1,7 +1,8 @@
 package com.ramitax.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.ramitax.enumerated.Sector;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.ramitax.model.enumerated.Sector;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -41,12 +42,15 @@ public class Articulo {
     private Sector sector;
 
     @OneToMany(mappedBy = "articulo", fetch = FetchType.LAZY)
+    @JsonManagedReference(value = "articulo-pedido-detalle")
     private List<PedidoDetalle> pedidosDetalle;
 
     @OneToMany(mappedBy = "articulo", fetch = FetchType.LAZY)
+    @JsonManagedReference(value = "articulo-orden-detalle")
     private List<OrdenCompraDetalle> ordenesCompraDetalle;
 
     @OneToMany(mappedBy = "articulo", fetch = FetchType.LAZY)
+    @JsonManagedReference(value = "articulo-factura-detalle")
     private List<FacturaDetalle> facturasDetalle;
 
 }

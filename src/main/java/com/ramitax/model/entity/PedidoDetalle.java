@@ -1,5 +1,8 @@
 package com.ramitax.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,17 +15,20 @@ import lombok.NoArgsConstructor;
 @Table(name = "pedido_detalle")
 public class PedidoDetalle {
 
-    @EmbeddedId
-    private PedidoDetalleKey id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
     @ManyToOne
-    @MapsId("idPedido")
     @JoinColumn(name = "id_pedido")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @JsonBackReference(value = "pedido-detalle")
     private Pedido pedido;
 
     @ManyToOne
-    @MapsId("idArticulo")
     @JoinColumn(name = "id_articulo")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @JsonBackReference(value = "articulo-pedido-detalle")
     private Articulo articulo;
 
     @Column(nullable = false)
@@ -30,8 +36,5 @@ public class PedidoDetalle {
 
     @Column(nullable = false)
     private Integer entregado;
-
-    @Column(nullable = false)
-    private Double importe;
 
 }

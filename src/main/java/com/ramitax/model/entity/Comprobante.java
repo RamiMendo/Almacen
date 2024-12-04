@@ -1,7 +1,6 @@
 package com.ramitax.model.entity;
 
-import com.ramitax.interfaces.Archivo;
-import com.ramitax.enumerated.Estado;
+import com.ramitax.model.enumerated.Estado;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +12,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @MappedSuperclass
-public abstract class Comprobante implements Archivo {
+public abstract class Comprobante {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

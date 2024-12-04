@@ -24,6 +24,12 @@ public class OrdenCompraDetalle {
     @JsonBackReference(value = "articulo-factura-detalle")
     private Articulo articulo;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_orden")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @JsonBackReference(value = "orden-detalle")
+    private OrdenCompra orden;
+
     @Column(nullable = false)
     private Integer cantidadSolicitada;
 

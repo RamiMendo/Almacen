@@ -10,7 +10,7 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
-public class FacturaDTO extends ComprobanteDTO{
+public class FacturaDTO {
 
     private String comentarios;
     private Cliente cliente;

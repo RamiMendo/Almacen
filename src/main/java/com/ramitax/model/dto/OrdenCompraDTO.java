@@ -9,7 +9,7 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
-public class OrdenCompraDTO extends ComprobanteDTO{
+public class OrdenCompraDTO {
 
     private String comentarios;
     private LocalDate fechaEntrega;

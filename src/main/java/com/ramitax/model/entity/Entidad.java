@@ -1,6 +1,5 @@
 package com.ramitax.model.entity;
 
-import com.ramitax.interfaces.Contabilizacion;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @MappedSuperclass
-public abstract class Entidad implements Contabilizacion {
+public abstract class Entidad {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

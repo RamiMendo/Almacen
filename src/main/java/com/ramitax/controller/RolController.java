@@ -46,7 +46,7 @@ public class RolController {
             description = "",
             tags = {"ROLES"}
     )
-    public @ResponseBody Rol save(@RequestParam Rol rol) {
+    public @ResponseBody Rol save(@RequestBody Rol rol) {
         return rolService.save(rol);
     }
 
@@ -55,7 +55,7 @@ public class RolController {
             description = "",
             tags = {"ROLES"}
     )
-    public @ResponseBody Rol update(@RequestParam Rol rol) {
+    public @ResponseBody Rol update(@RequestBody Rol rol) {
         return rolService.update(rol);
     }
 
@@ -64,7 +64,7 @@ public class RolController {
             description = "",
             tags = {"ROLES"}
     )
-    public ResponseEntity<Void> delete(@RequestParam Rol rol) {
+    public ResponseEntity<Void> delete(@RequestBody Rol rol) {
         rolService.delete(rol);
         return ResponseEntity.noContent().build();
     }

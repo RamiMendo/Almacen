@@ -46,7 +46,7 @@ public class UsuarioController {
             description = "",
             tags = {"USUARIOS"}
     )
-    public @ResponseBody Usuario save(@RequestParam Usuario usuario) throws CustomException {
+    public @ResponseBody Usuario save(@RequestBody Usuario usuario) throws CustomException {
         return usuarioService.save(usuario);
     }
 
@@ -55,7 +55,7 @@ public class UsuarioController {
             description = "",
             tags = {"USUARIOS"}
     )
-    public @ResponseBody Usuario update(@RequestParam Usuario usuario) throws CustomException {
+    public @ResponseBody Usuario update(@RequestBody Usuario usuario) throws CustomException {
         return usuarioService.update(usuario);
     }
 
@@ -64,7 +64,7 @@ public class UsuarioController {
             description = "",
             tags = {"USUARIOS"}
     )
-    public ResponseEntity<Void> delete(@RequestParam Usuario usuario) throws CustomException {
+    public ResponseEntity<Void> delete(@RequestBody Usuario usuario) throws CustomException {
         usuarioService.delete(usuario);
         return ResponseEntity.noContent().build();
     }

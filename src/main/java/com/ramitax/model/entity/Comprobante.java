@@ -25,12 +25,6 @@ public abstract class Comprobante {
     @Column(nullable = false)
     private Estado estado;
 
-    @Column(nullable = false)
-    private Double importe;
-
-    @Column(nullable = false)
-    private Double saldo;
-
     @Column(length = 50)
     private String comentarios;
 

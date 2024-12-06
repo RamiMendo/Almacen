@@ -15,6 +15,7 @@ import java.util.List;
 public class Proveedor extends Entidad{
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @JoinColumn(name = "id_domicilio")
     private Domicilio domicilio;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "proveedor")

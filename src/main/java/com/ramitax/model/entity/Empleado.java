@@ -31,6 +31,7 @@ public class Empleado extends Entidad{
     private LocalDate fechaNacimiento;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @JoinColumn(name = "id_domicilio")
     private Domicilio domicilio;
 
 }

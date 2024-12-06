@@ -32,6 +32,7 @@ public class Factura extends Comprobante{
 
     @Nullable
     @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_pedido")
     private Pedido pedido;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "factura", cascade = CascadeType.ALL, orphanRemoval = true)

@@ -17,6 +17,7 @@ public class ListaPrecios {
     private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_articulo")
     private Articulo articulo;
 
     @Column(nullable = false)

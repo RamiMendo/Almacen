@@ -16,6 +16,7 @@ public class OrdenCompraDetalle {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_orden_detalle")
     private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)

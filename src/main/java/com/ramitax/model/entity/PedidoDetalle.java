@@ -17,6 +17,7 @@ public class PedidoDetalle {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_pedido_detalle")
     private Integer id;
 
     @ManyToOne

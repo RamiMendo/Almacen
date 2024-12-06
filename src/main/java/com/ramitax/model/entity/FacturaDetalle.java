@@ -16,6 +16,7 @@ public class FacturaDetalle {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_factura_detalle")
     private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)

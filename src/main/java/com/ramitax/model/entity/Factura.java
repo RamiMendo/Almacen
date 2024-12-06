@@ -20,6 +20,12 @@ import java.util.List;
 @AttributeOverride(name = "id", column = @Column(name = "id_factura"))
 public class Factura extends Comprobante{
 
+    @Column(nullable = false)
+    private Double importe;
+
+    @Column(nullable = false)
+    private Double saldo;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_cliente")
     private Cliente cliente;

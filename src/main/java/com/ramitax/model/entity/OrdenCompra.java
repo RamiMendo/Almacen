@@ -18,6 +18,12 @@ import java.util.List;
 public class OrdenCompra extends Comprobante{
 
     @Column(nullable = false)
+    private Double importe;
+
+    @Column(nullable = false)
+    private Double saldo;
+
+    @Column(nullable = false)
     private LocalDate fechaEntrega;
 
     @ManyToOne(fetch = FetchType.LAZY)

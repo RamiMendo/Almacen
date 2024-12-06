@@ -6,6 +6,7 @@ import com.ramitax.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,6 +21,10 @@ public class UsuarioService {
 
     public Usuario findById(Integer id) throws CustomException {
         return usuarioRepository.findById(id).orElse(null);
+    }
+
+    public String encripPassword(String password) {
+        return new BCryptPasswordEncoder().encode(password);
     }
 
     public Usuario findByUsername(String username) {

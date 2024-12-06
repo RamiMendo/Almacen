@@ -12,6 +12,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Entity
 @Table(name = "empleados")
+@AttributeOverride(name = "id", column = @Column(name = "id_empleado"))
 public class Empleado extends Entidad{
 
     @Column(nullable = false, length = 8)

@@ -9,7 +9,8 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "proveedores")
-@AttributeOverride(name = "cuit", column = @Column(name = "cuil"))
+@AttributeOverrides({@AttributeOverride(name = "id", column = @Column(name = "id_proveedor")),
+        @AttributeOverride(name = "cuit", column = @Column(name = "cuil"))})
 @JsonIgnoreProperties("ordenesCompra")
 public class Proveedor extends Entidad{
 

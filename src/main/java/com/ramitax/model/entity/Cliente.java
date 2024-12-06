@@ -10,6 +10,7 @@ import java.util.List;
 @Entity
 @Table(name = "clientes")
 @JsonIgnoreProperties({"pedidos", "usuario"})
+@AttributeOverride(name = "id", column = @Column(name = "id_cliente"))
 public class Cliente extends Entidad{
 
     @Column(nullable = false, length = 8)

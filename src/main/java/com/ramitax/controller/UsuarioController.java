@@ -47,6 +47,7 @@ public class UsuarioController {
             tags = {"USUARIOS"}
     )
     public @ResponseBody Usuario save(@RequestBody Usuario usuario) throws CustomException {
+        usuario.setPassword(usuarioService.encripPassword(usuario.getPassword()));
         return usuarioService.save(usuario);
     }
 

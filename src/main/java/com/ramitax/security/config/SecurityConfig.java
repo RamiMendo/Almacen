@@ -35,7 +35,9 @@ public class SecurityConfig {
         return httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .httpBasic(Customizer.withDefaults())
+                .formLogin(Customizer.withDefaults())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .oauth2Login(Customizer.withDefaults())
                 .addFilterBefore(new JWTTokenValidator(jwtUtils), BasicAuthenticationFilter.class)
                 .build();
 
